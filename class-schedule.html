@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="class-schedule.css"/>
+        <title>class schedule</title>
+    </head>
+    <body>
+    
+    <div class="a">
+        <input id="inputDay" placeholder="輸入星期幾"></input>
+        <p>範例輸入: 星期一</p>
+    </div>
+    <div class="a">
+        <input id="inputLesson" placeholder="輸入第幾節課"></input>
+        <p>範例輸入: 第一節</p>
+    </div>
+    <div>
+        <input type="button" value="查詢" onclick="search()"></input>
+    </div>
+    
+    
+    <div id="result"></div>
+        
+        
+        <script>  
+            
+        var schedule=[
+            ["生物","國防","音樂","英文","體育","數學","物理","無"],
+            ["生物","公民","彈性學習","彈性學習","數學","國文","歷史","數學"],
+            ["英文","數學","物理","國文","資訊","資訊","音樂","國文"],
+            ["公民","國文","國文","體育","歷史","數學","英文","英文"],
+            ["生涯規劃","英文","多元選修","多元選修","彈性學習","班會","社團","無"]
+        ];
+        
+        
+        
+            function search(){
+            var day;
+            var lesson;
+            day = String(document.getElementById("inputDay").value);
+            lesson = String(document.getElementById("inputLesson").value);
+            if(day in dic && lesson in dic){
+                document.getElementById("result").innerHTML=schedule[dic[day]][dic[lesson]];
+            }
+            else{
+                document.getElementById("result").innerHTML="輸入錯誤";
+            }
+        
+        
+        }
+            
+            
+            
+            
+            var dic = {
+            "星期一" : 0,
+            "星期二" : 1,
+            "星期三" : 2,
+            "星期四" : 3,
+            "星期五" : 4,
+            "第一節" : 0,
+            "第二節" : 1,
+            "第三節" : 2,
+            "第四節" : 3,
+            "第五節" : 4,
+            "第六節" : 5,
+            "第七節" : 6,
+            "第八節" : 7,
+            };
+        
+        </script>
+    </body>
+</html>
